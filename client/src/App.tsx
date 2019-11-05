@@ -1,24 +1,21 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Button from "./components/Button";
-
-import { ReactComponent as Logo } from "./assets/dzik.svg";
+import Homepage from "./pages/Homepage";
 
 import "./App.scss";
 
 const App: React.FC = () => {
-  const log = () => {
-    console.log("test");
-  };
   return (
-    <main className="App">
-      <Logo className="App__logo" />
-      <div className="App__actions">
-        <Button onClick={log}>Trening A</Button>
-        <Button onClick={log}>Trening B</Button>
-        <Button onClick={log}>Podsumowanie</Button>
-      </div>
-    </main>
+    <Router>
+      <main className="App">
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 };
 
